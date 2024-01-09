@@ -1,1 +1,13 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/PkgZgD91)
+# Documentation of this 2nd Milestone
+
+## Weather App 🌤️
+
+### Day 1
+
+1. Install Vite React. npm create vite@latest
+2. Install Tailwind CSS with Vite.
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
+3. Install React Router. npm install react-router-dom localforage match-sorter sort-by
+4. Create Modules.
+5. Create basic structure of the Weather App.
