@@ -7,8 +7,8 @@ import {
 import "./App.css";
 import { Fragment } from "react";
 import Layout from "./Layout";
-import WeatherComponent from "./pages/Weather/Weather";
-import ForecastComponent from "./pages/Forecast/Forecast";
+import WeatherComponent from "./pages/Weather/WeatherPage";
+// import ForecastComponent from "./pages/Forecast/Forecast";
 import Home from "./pages/Home/Home";
 
 const router = createBrowserRouter(
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />}></Route>
       <Route path="/weather" element={<WeatherComponent />}></Route>
-      <Route path="/forecast" element={<ForecastComponent />}></Route>
+      {/* <Route path="/forecast" element={<ForecastComponent />}></Route> */}
     </Route>
   )
 );
