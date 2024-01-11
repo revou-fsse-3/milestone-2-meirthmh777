@@ -10,6 +10,8 @@ interface WeatherData {
   windSpeed: number;
   humidity: number;
   pressure: number;
+  feelsLike: number;
+  seaLevel: number;
 }
 type WeatherInputComponents = FC<WeatherInputProps>;
 

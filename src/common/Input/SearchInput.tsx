@@ -17,6 +17,8 @@ interface WeatherData {
   windSpeed: number;
   humidity: number;
   pressure: number;
+  feelsLike: number;
+  seaLevel: number;
 }
 type SearchInputComponents = FC<SearchInputProps> & PropsWithChildren;
 
@@ -46,6 +48,8 @@ const SearchInput: SearchInputComponents = ({
       windSpeed: data.wind.speed,
       humidity: data.main.humidity,
       pressure: data.main.pressure,
+      feelsLike: data.main.feels_like,
+      seaLevel: data.main.sea_level,
     };
 
     // Pass temperature to the parent component or perform other actions
@@ -75,6 +79,7 @@ const SearchInput: SearchInputComponents = ({
           onClick={() => {
             search();
           }}
+          className="font-bold"
         >
           Search
         </Button>
