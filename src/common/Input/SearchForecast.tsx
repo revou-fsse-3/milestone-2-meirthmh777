@@ -7,7 +7,7 @@ import _React, {
 } from "react";
 import Button, { ButtonTypes } from "../Button";
 
-interface SearchInputProps extends HTMLAttributes<HTMLDivElement> {
+interface SearchForecastProps extends HTMLAttributes<HTMLDivElement> {
   onSearchChange: (weatherData: WeatherData) => void;
 }
 interface WeatherData {
@@ -20,9 +20,9 @@ interface WeatherData {
   feelsLike: number;
   seaLevel: number;
 }
-type SearchInputComponents = FC<SearchInputProps> & PropsWithChildren;
+type SearchForecastComponents = FC<SearchForecastProps> & PropsWithChildren;
 
-const SearchInput: SearchInputComponents = ({
+const SearchForecast: SearchForecastComponents = ({
   onSearchChange,
   children,
   ...restProps
@@ -35,7 +35,7 @@ const SearchInput: SearchInputComponents = ({
       return 0;
     }
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=${api_key}`;
+    const url = `api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=${api_key}`;
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
@@ -88,4 +88,4 @@ const SearchInput: SearchInputComponents = ({
   );
 };
 
-export default SearchInput;
+export default SearchForecast;

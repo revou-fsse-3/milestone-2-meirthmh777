@@ -1,6 +1,6 @@
 import _React, { FC, HTMLAttributes, useState } from "react";
 // import icons from "../../../public/icons/01d.png";
-import SearchInput from "./SearchInput";
+import SearchCurrentWeather from "./SearchCurrentWeather";
 
 interface WeatherInputProps extends HTMLAttributes<HTMLDivElement> {}
 interface WeatherData {
@@ -27,7 +27,7 @@ const WeatherInput: WeatherInputComponents = ({ ...resProps }) => {
       {...resProps}
       className={`${resProps.className ? resProps.className : ""}`}
     >
-      <SearchInput onSearchChange={handleSearchChange} />
+      <SearchCurrentWeather onSearchChange={handleSearchChange} />
       <div className="bg-slate-200 md:box-content text-lg m-auto justify-center items-center flex gap-16 max-w-fit p-5">
         <div className="flex items-center gap-10">
           {/* <img src={icons} className="h-70 w-70" alt="Weather icon" /> */}

@@ -4,7 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import SearchInput from "./SearchInput";
+import SearchForecast from "./SearchCurrentWeather";
 
 interface ForecastInputProps extends HTMLAttributes<HTMLDivElement> {}
 interface WeatherData {
@@ -25,25 +25,25 @@ const ForecastInput: ForecastInputComponents = ({ ...resProps }) => {
   const handleSearchChange = async (weatherData: WeatherData) => {
     setWeatherData(weatherData);
   };
-  const WEEK_DAYS = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-  const dayInAWeek = new Date().getDay();
-  const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(
-    WEEK_DAYS.slice(0, dayInAWeek)
-  );
+  // const WEEK_DAYS = [
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday",
+  //   "Sunday",
+  // ];
+  // const dayInAWeek = new Date().getDay();
+  // const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(
+  //   WEEK_DAYS.slice(0, dayInAWeek)
+  // );
   return (
     <div
       {...resProps}
       className={`${resProps.className ? resProps.className : ""}`}
     >
-      <SearchInput onSearchChange={handleSearchChange}></SearchInput>
+      <SearchForecast onSearchChange={handleSearchChange} />
       <Accordion>
         {/* {data.slice.splice(0,7).map((item, idx) => ())} */}
         <AccordionSummary
