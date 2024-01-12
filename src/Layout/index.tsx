@@ -13,7 +13,7 @@ const index: indexComponents = ({ children, ...resProps }) => {
       <nav className={"w-full h-[2re] max-w-[30rem] top-0 m-auto px-8 py-4 "}>
         <ul
           className={
-            "flex gap-4" + " text-2xl font-bold text-black justify-center"
+            "flex gap-6" + " text-2xl font-bold text-black justify-center"
           }
         >
           <NavLink to="/" label="Home" />
