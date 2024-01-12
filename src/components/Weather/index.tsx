@@ -45,7 +45,7 @@ const index: indexComponents = ({ children, data, ...resProps }) => {
         resProps.className ? resProps.className : ""
       }`}
     >
-      <div className="flex bg-slate-800 text-white m-5 p-7 gap-10 rounded-lg max-w-lg">
+      <div className="flex bg-slate-700 text-white m-5 p-7 gap-10 rounded-lg max-w-lg">
         <div className="items-center justify-center ml-auto">
           <div className="items-center">
             <p className="text-3xl font-bold">{data.name}</p>

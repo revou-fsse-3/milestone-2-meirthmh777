@@ -36,16 +36,20 @@ const index: indexComponents = ({ data }) => {
         {data.list.splice(0, 7).map((item, idx) => (
           <AccordionItem key={idx}>
             <AccordionItemHeading>
-              <AccordionItemButton className="bg-white m-2 p-3 rounded-xl text-xl">
+              <AccordionItemButton className="bg-white m-2 p-3 rounded-xl bg-opacity-70 hover:bg-opacity-100">
                 <div className="flex items-center flex-row gap-5">
                   <img
                     src={`icons/${item.weather[0].icon}.png`}
                     className="w-12 h-12"
                     alt="weather"
                   />
-                  <label className="font-bold">{forecastDays[idx]}</label>
-                  <label>{item.weather[0].description}</label>
-                  <label className="min-max">
+                  <label className="font-bold text-xl text-black">
+                    {forecastDays[idx]}
+                  </label>
+                  <label className="text-xl">
+                    {item.weather[0].description}
+                  </label>
+                  <label className="min-max text-xl">
                     {Math.round(item.main.temp_max)}°C /
                     {Math.round(item.main.temp_min)}°C
                   </label>
