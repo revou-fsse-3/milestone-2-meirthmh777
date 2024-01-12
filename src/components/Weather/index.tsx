@@ -1,6 +1,5 @@
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
 import { GetWeatherProps } from "../../libs/api/GetWeather";
-// import "./index.css";
 
 interface indexProps extends HTMLAttributes<HTMLDivElement> {
   data: GetWeatherProps;

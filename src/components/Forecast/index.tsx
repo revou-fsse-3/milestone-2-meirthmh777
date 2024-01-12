@@ -8,7 +8,6 @@ import {
   //   AccordionItemState,
 } from "react-accessible-accordion";
 import { GetForecastProps } from "../../libs/api/GetForecast";
-// import "./index.css";
 
 const WEEK_DAYS = [
   "Monday",
