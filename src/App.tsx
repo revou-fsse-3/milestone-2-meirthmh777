@@ -24,7 +24,7 @@ const router = createBrowserRouter(
 function App() {
   return (
     <Fragment>
-      <div className="bg-gradient-to-r from-sky-500 to-indigo-500 w-full">
+      <div className="bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg ">
         <h1 className="text-5xl font-bold p-8">Weather App 🌤️</h1>
         <RouterProvider router={router} />
       </div>

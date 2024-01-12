@@ -12,27 +12,37 @@ interface indexProps extends HTMLAttributes<HTMLDivElement> {
   data: GetWeatherProps;
 }
 type indexComponents = FC<indexProps> & PropsWithChildren;
-
+function getFormattedTime(timezone = 0) {
+  const date = new Date();
+  const unixTimezoneOffset = timezone;
+  date.setUTCSeconds(date.getUTCSeconds() + unixTimezoneOffset);
+  const hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
+  const seconds = date.getUTCSeconds();
+  return `${hours % 12 || 12}:${String(minutes).padStart(2, "0")}:${String(
+    seconds
+  ).padStart(2, "0")} ${hours >= 12 ? "PM" : "AM"}`;
+}
 // make timezone based on the city searched by users
 const index: indexComponents = ({ children, data, ...resProps }) => {
   const [currentTime, setCurrentTime] = useState(getFormattedTime());
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(getFormattedTime());
+      setCurrentTime(getFormattedTime(data.timezone));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-  function getFormattedTime() {
-    const date = new Date();
-    const unixTimezoneOffset = data.timezone || 0;
-    date.setUTCSeconds(date.getUTCSeconds() + unixTimezoneOffset);
-    const hours = date.getUTCHours();
-    const minutes = date.getUTCMinutes();
-    const seconds = date.getUTCSeconds();
-    return `${hours % 12 || 12}:${String(minutes).padStart(2, "0")}:${String(
-      seconds
-    ).padStart(2, "0")} ${hours >= 12 ? "PM" : "AM"}`;
-  }
+  // function getFormattedTime() {
+  //   const date = new Date();
+  //   const unixTimezoneOffset = data.timezone || 0;
+  //   date.setUTCSeconds(date.getUTCSeconds() + unixTimezoneOffset);
+  //   const hours = date.getUTCHours();
+  //   const minutes = date.getUTCMinutes();
+  //   const seconds = date.getUTCSeconds();
+  //   return `${hours % 12 || 12}:${String(minutes).padStart(2, "0")}:${String(
+  //     seconds
+  //   ).padStart(2, "0")} ${hours >= 12 ? "PM" : "AM"}`;
+  // }
 
   // UTC timezone
   // const unixTimezone = data.timezone;
@@ -45,9 +55,9 @@ const index: indexComponents = ({ children, data, ...resProps }) => {
         resProps.className ? resProps.className : ""
       }`}
     >
-      <div className="flex bg-slate-700 text-white m-5 p-7 gap-10 rounded-lg max-w-lg">
-        <div className="items-center justify-center ml-auto">
-          <div className="items-center">
+      <div className="flex justify-center bg-slate-700 text-white m-5 p-7 gap-16 rounded-lg  lg:w-6/12">
+        <div className="flex-[1]">
+          <div>
             <p className="text-3xl font-bold">{data.name}</p>
             <p className="text-3xl">{Math.round(data.main.temp)}°C</p>
             <p className="text-xl">{data.weather[0].description}</p>
@@ -59,10 +69,28 @@ const index: indexComponents = ({ children, data, ...resProps }) => {
           />
           <p className="text-3xl font-bold">{currentTime}</p>
         </div>
-        <div className="text-xl table">
+        <div className="lg:pt-10 text-lg lg:text-2xl flex-[2] flex flex-col gap-8 lg:px-8 ">
+          <div className="flex flex-col lg:flex-row justify-between">
+            <span className="">Feels like :</span>
+            <span className="">{Math.round(data.main.feels_like)}°C</span>
+          </div>
+          <div className="flex flex-col lg:flex-row justify-between">
+            <span className="">Wind :</span>
+            <span className="">{data.wind.speed} m/s</span>
+          </div>
+          <div className="flex flex-col lg:flex-row justify-between">
+            <span className="">Humidity :</span>
+            <span className="">{data.main.humidity}%</span>
+          </div>
+          <div className="flex flex-col lg:flex-row justify-between">
+            <span className="">Pressure :</span>
+            <span className="">{data.main.pressure} hPa</span>
+          </div>
+        </div>
+        {/* <div className="text-xl table">
           <div className="table-row-group">
             <div className="table-row">
-              <span className="table-cell">Feels like</span>
+              <span className="">Feels like</span>
               <span className="table-cell">
                 {Math.round(data.main.feels_like)}°C
               </span>
@@ -80,7 +108,7 @@ const index: indexComponents = ({ children, data, ...resProps }) => {
               <span className="table-cell">{data.main.pressure} hPa</span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
