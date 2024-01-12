@@ -3,7 +3,7 @@
 ## Weather App 🌤️
 
 Easly access my Weather App 🌤️ by clicking this url:
-https://vercel.com/meirth-mhs-projects/milestone-2-meirthmh777
+https://milestone-2-meirthmh777.vercel.app/
 
 ### Day 1
 
