@@ -9,13 +9,11 @@ const index: indexComponents = ({ children, ...resProps }) => {
       {...resProps}
       className={`${resProps.className ? resProps.className : ""}`}
     >
-      <div className="bg-gray-600 bg-opacity-30 py-4 px-8 w-5/12 text-2xl text-white font-bold mx-auto rounded-lg">
+      <div className="bg-gray-500 bg-opacity-30 py-4 px-8 w-5/12 text-xl text-white font-bold mx-auto rounded-lg">
         <Clock timezone={0} />
       </div>
       <FieldSet legend="Home Page">
-        <h1 className="text-lg">
-          Explore current weather by navigating to the Weather page.
-        </h1>
+        <h1>Explore current weather by navigating to the Weather page.</h1>
       </FieldSet>
     </div>
   );

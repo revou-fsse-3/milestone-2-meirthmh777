@@ -21,8 +21,11 @@ const index: indexComponents = ({ children, timezone, ...resProps }) => {
   return (
     <p
       {...resProps}
-      className={`${resProps.className ? resProps.className : ""}`}
+      className={`${
+        resProps.className ? resProps.className : "text-3xl font-bold"
+      }`}
     >
+      {" "}
       {currentTime}
     </p>
   );
