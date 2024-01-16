@@ -9,10 +9,11 @@ const index: indexComponents = ({ children, legend, ...resProps }) => {
     <fieldset
       {...resProps}
       className={
-        "  text-center" + ` ${resProps.className ? resProps.className : ""}`
+        "  text-center w-full " +
+        ` ${resProps.className ? resProps.className : ""}`
       }
     >
-      <legend className="text-2xl underline font-bold py-2">{legend}</legend>
+      <legend className="text-2xl underline">{legend}</legend>
       {children}
     </fieldset>
   );

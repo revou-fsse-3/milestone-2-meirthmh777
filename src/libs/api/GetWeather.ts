@@ -6,6 +6,9 @@ export default async function GetWeather(
   const request = await fetch(
     `${WEATHER_API_URL}/weather?q=${city}&units=Metric&appid=${WEATHER_API_KEY}`
   );
+  if (!request.ok) {
+    throw Error("Failed fetch forecest");
+  }
   const respond = (await request.json()) as unknown;
   return respond as GetWeatherProps;
 }

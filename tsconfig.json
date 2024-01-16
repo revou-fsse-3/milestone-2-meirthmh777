@@ -23,6 +23,7 @@
       "@context/*": ["./src/context/*"],
       "@components/*": ["./src/components/*"],
       "@container/*": ["./src/container/*"],
+      "@common/*": ["./src/common/*"],
       "@libs/*": ["./src/libs/*"]
     }
   },

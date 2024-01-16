@@ -11,7 +11,7 @@ interface indexProps extends HTMLAttributes<HTMLParagraphElement> {
 }
 type indexComponents = FC<indexProps> & PropsWithChildren;
 const index: indexComponents = ({ children, timezone, ...resProps }) => {
-  const [currentTime, setCurrentTime] = useState(getFormattedTime());
+  const [currentTime, setCurrentTime] = useState("");
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(getFormattedTime(timezone));
@@ -34,6 +34,8 @@ const index: indexComponents = ({ children, timezone, ...resProps }) => {
 export default index;
 function getFormattedTime(timezone = 0) {
   const date = new Date();
+  console.log(date.toLocaleDateString());
+
   const unixTimezoneOffset = timezone;
   date.setUTCSeconds(date.getUTCSeconds() + unixTimezoneOffset);
   const hours = date.getUTCHours();

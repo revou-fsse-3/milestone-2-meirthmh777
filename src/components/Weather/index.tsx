@@ -7,7 +7,7 @@ import {
 } from "react";
 import { GetWeatherProps } from "../../libs/api/GetWeather";
 // import { format } from "path";
-
+//halloo
 interface indexProps extends HTMLAttributes<HTMLDivElement> {
   data: GetWeatherProps;
 }
@@ -55,7 +55,7 @@ const index: indexComponents = ({ children, data, ...resProps }) => {
         resProps.className ? resProps.className : ""
       }`}
     >
-      <div className="flex justify-center bg-slate-700 text-white m-5 p-7 gap-16 rounded-lg  lg:w-6/12">
+      <div className="flex justify-center bg-slate-700 text-white m-5 p-7 gap- rounded-lg  lg:w-6/12">
         <div className="flex-[1]">
           <div>
             <p className="text-3xl font-bold">{data.name}</p>
@@ -64,8 +64,8 @@ const index: indexComponents = ({ children, data, ...resProps }) => {
           </div>
           <img
             alt="weather"
-            className="h-36 w-36 mx-auto"
-            src={`icons/${data.weather[0].icon}.png`}
+            className="h-32 w-32 mx-auto"
+            src={`/icons/${data.weather[0].icon}.png`}
           />
           <p className="text-3xl font-bold">{currentTime}</p>
         </div>

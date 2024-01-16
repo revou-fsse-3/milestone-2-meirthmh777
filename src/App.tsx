@@ -5,30 +5,29 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./App.css";
-import { Fragment } from "react";
-import Layout from "./Layout";
-import WeatherComponent from "./pages/Weather/WeatherPage";
-// import ForecastComponent from "./pages/Forecast/Forecast";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import WeatherResult from "./pages/Weather/page/Result";
+import Weather from "./pages/Weather";
 import Home from "./pages/Home/Home";
+import Layout from "./Layout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />}></Route>
-      <Route path="/weather" element={<WeatherComponent />}></Route>
-      {/* <Route path="/forecast" element={<ForecastComponent />}></Route> */}
+      <Route path="/weather" element={<Weather />}>
+        <Route path="result" element={<WeatherResult />} />
+      </Route>
     </Route>
   )
 );
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Fragment>
-      <div className="bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg ">
-        <h1 className="text-5xl font-bold p-8">Weather App 🌤️</h1>
-        <RouterProvider router={router} />
-      </div>
-    </Fragment>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   );
 }
 

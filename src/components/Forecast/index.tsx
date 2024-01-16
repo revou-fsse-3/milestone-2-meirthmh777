@@ -41,7 +41,7 @@ const index: indexComponents = ({ data }) => {
                 <div className="flex items-center flex-row gap-5 justify-between">
                   <div className="flex gap-3 items-center">
                     <img
-                      src={`icons/${item.weather[0].icon}.png`}
+                      src={`/icons/${item.weather[0].icon}.png`}
                       className="w-12 h-12"
                       alt="weather"
                     />

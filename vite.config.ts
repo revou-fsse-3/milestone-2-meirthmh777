@@ -11,6 +11,7 @@ export default defineConfig({
       "@components": fileURLToPath(
         new URL("./src/components", import.meta.url)
       ),
+      "@common": fileURLToPath(new URL("./src/common", import.meta.url)),
       // "@container": fileURLToPath(new URL("./src/container", import.meta.url)),
       "@libs": fileURLToPath(new URL("./src/libs", import.meta.url)),
     },
